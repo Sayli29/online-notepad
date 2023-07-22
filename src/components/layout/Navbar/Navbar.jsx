@@ -1,56 +1,96 @@
-import { useState } from "react";
+import { keyframes } from "@mui/system";
+import { useState, useEffect } from "react";
 import {
     AppBar,
     Toolbar,
     Typography,
-    Tabs,
-    Tab,
-    useMediaQuery,
-    useTheme,
+    Box,
+    IconButton,
 } from "@mui/material";
-import EditNoteIcon from '@mui/icons-material/EditNote';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import ToggleCompo from "./ToggleCompo";
+import { GitFork } from 'lucide-react';
+import GitHubIcon from "@mui/icons-material/GitHub";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import EditNoteIcon from "@mui/icons-material/EditNote";
+
+const moveFromTopAnimation = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 const Navbar = () => {
-    const [value, setValue] = useState();
-    const theme = useTheme();
-    console.log(theme);
-    const isMatch = useMediaQuery(theme.breakpoints.down("md"));
-    console.log(isMatch);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        setIsMobile(true); // Set isMobile to true when the component mounts to trigger the animation
+    }, []);
 
     return (
         <>
-            <AppBar sx={{
-                background: "#483285", boxShadow: "none" }} disableElevation>
+            <AppBar
+                position="fixed"
+                sx={{
+                    background: " #060712",
+                    boxShadow: "none",
+                    "& .icon": {
+                        opacity: isMobile ? 1 : 0,
+                        animation: `${moveFromTopAnimation} 0.5s ease-in-out`,
+                    },
+                }}
+            >
                 <Toolbar>
-                    <EditNoteIcon></EditNoteIcon>
-                    <Typography sx={{ marginLeft: '6px' }}>
-                        EDITOR
+                    <Typography
+                        sx={{
+                            marginLeft: "10px",
+                            fontWeight: "bold",
+                            letterSpacing: "2px",
+                            fontSize: "25px",
+                            opacity: isMobile ? 1 : 0,
+                            animation: `${moveFromTopAnimation} 0.5s ease-in-out`,
+                        }}
+                    >
+                        Editor
                     </Typography>
-                    {isMatch ? (
-                        <>
-                            <ToggleCompo />
-                        </>
-                    ) : (
-                        <>
-                            <Tabs sx={{ marginLeft: "auto" }}
-                                textColor="inherit"
-                                value={value}
-                                onChange={(e, value) => setValue(value)}
-                                indicatorColor="secondary">
-                                <Tab label="Fork"></Tab>
-                                <Tab label={<FavoriteBorderIcon/>}></Tab>
-                                <Tab label={<GitHubIcon/>}></Tab>
-                            </Tabs>
-                        </>
-                    )
-                    }
+                    <Box sx={{ flexGrow: "1" }} />
+                    <IconButton
+                        color="inherit"
+                        className={`icon`}
+                        sx={{
+                            opacity: isMobile ? 1 : 0,
+                            animation: `${moveFromTopAnimation} 0.5s ease-in-out`,
+                        }}
+                    >
+                        <FavoriteBorderIcon />
+                    </IconButton>
+                    <IconButton
+                        color="inherit"
+                        className={`icon`}
+                        sx={{
+                            opacity: isMobile ? 1 : 0,
+                            animation: `${moveFromTopAnimation} 0.5s ease-in-out`,
+                        }}>
+                        <GitFork></GitFork>
+                    </IconButton>
+                    <IconButton
+                        color="inherit"
+                        className={`icon`}
+                        sx={{
+                            opacity: isMobile ? 1 : 0,
+                            animation: `${moveFromTopAnimation} 0.5s ease-in-out`,
+                        }}
+                    >
+                        <GitHubIcon />
+                    </IconButton>
+                    
                 </Toolbar>
             </AppBar>
         </>
     );
-}
+};
 
 export default Navbar;
