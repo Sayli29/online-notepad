@@ -19,7 +19,7 @@ const moveFromTopAnimation = keyframes`
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0px);
   }
 `;
 
@@ -27,7 +27,7 @@ const Navbar = () => {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        setIsMobile(true); // Set isMobile to true when the component mounts to trigger the animation
+        setIsMobile(true); 
     }, []);
 
     return (
@@ -46,7 +46,7 @@ const Navbar = () => {
                 <Toolbar>
                     <Typography
                         sx={{
-                            marginLeft: "10px",
+                            marginLeft: "40px",
                             fontWeight: "bold",
                             letterSpacing: "2px",
                             fontSize: "25px",
