@@ -29,7 +29,7 @@ const Home = () => {
                         borderRadius: '20px',
                         top: '100px',
                         left: '40px',
-                        animation: `${leftAnimation} 0.3s 0.5s linear forwards`,
+                        animation: `${leftAnimation} 0.4s 0.7s linear forwards`,
                         //animation name duration delay function fillmode
                         opacity: '0',
                      }}>
@@ -100,7 +100,7 @@ const Home = () => {
                             left: '40px',
                             borderRadius: '20px',
                             background: "linear-gradient(180deg, rgba(255,102,118,1) 0%, rgba(255,0,18,1) 0%, rgba(141,18,37,1) 100%)",
-                            animation: `${leftAnimation} 1s 1.5s linear forwards`,
+                            animation: `${leftAnimation} 1s 1.3s linear forwards`,
                             //animation name duration delay function fillmode
                             opacity:0,
     
