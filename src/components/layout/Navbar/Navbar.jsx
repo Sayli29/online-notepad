@@ -24,11 +24,11 @@ const moveFromTopAnimation = keyframes`
 `;
 
 const Navbar = () => {
-    const [isMobile, setIsMobile] = useState(false);
+    // const [isMobile, setIsMobile] = useState(false);
 
-    useEffect(() => {
-        setIsMobile(true); 
-    }, []);
+    // useEffect(() => {
+    //     setIsMobile(true); 
+    // }, []);
 
     return (
         <>
@@ -37,10 +37,10 @@ const Navbar = () => {
                 sx={{
                     background: " #060712",
                     boxShadow: "none",
-                    "& .icon": {
-                        opacity: isMobile ? 1 : 0,
-                        animation: `${moveFromTopAnimation} 0.5s ease-in-out`,
-                    },
+                    // "& .icon": {
+                    //     opacity: isMobile ? 1 : 0,
+                    //     animation: `${moveFromTopAnimation} 0.5s ease-in-out`,
+                    // },
                 }}
             >
                 <Toolbar>
@@ -50,7 +50,7 @@ const Navbar = () => {
                             fontWeight: "bold",
                             letterSpacing: "2px",
                             fontSize: "25px",
-                            opacity: isMobile ? 1 : 0,
+                            // opacity: isMobile ? 1 : 0,
                             animation: `${moveFromTopAnimation} 0.5s ease-in-out`,
                         }}
                     >
@@ -59,9 +59,9 @@ const Navbar = () => {
                     <Box sx={{ flexGrow: "1" }} />
                     <IconButton
                         color="inherit"
-                        className={`icon`}
+                        // className={`icon`}
                         sx={{
-                            opacity: isMobile ? 1 : 0,
+                            // opacity: isMobile ? 1 : 0,
                             animation: `${moveFromTopAnimation} 0.5s ease-in-out`,
                         }}
                     >
@@ -69,18 +69,18 @@ const Navbar = () => {
                     </IconButton>
                     <IconButton
                         color="inherit"
-                        className={`icon`}
+                        // className={`icon`}
                         sx={{
-                            opacity: isMobile ? 1 : 0,
+                            // opacity: isMobile ? 1 : 0,
                             animation: `${moveFromTopAnimation} 0.5s ease-in-out`,
                         }}>
                         <GitFork></GitFork>
                     </IconButton>
                     <IconButton
                         color="inherit"
-                        className={`icon`}
+                        // className={`icon`}
                         sx={{
-                            opacity: isMobile ? 1 : 0,
+                            // opacity: isMobile ? 1 : 0,
                             animation: `${moveFromTopAnimation} 0.5s ease-in-out`,
                         }}
                     >
