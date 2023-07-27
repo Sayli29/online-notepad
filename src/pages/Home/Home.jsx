@@ -19,6 +19,18 @@ const Home = () => {
         opacity: 1;
     }`;
 
+    const quartercircleAnimation = keyframes`
+    from{
+        transform: translateY(-30%);
+        opacity: 0px;
+    }
+    to{
+        width: 300px;
+        height: 300px;
+        transform: translateY(0);
+        opacity: 1px;
+    }`;
+
     return (
         <>
             <CssBaseline></CssBaseline>
@@ -115,8 +127,9 @@ const Home = () => {
                         animation: `${leftAnimation} 1s 1.3s linear forwards`,
                         //animation name duration delay function fillmode
                         opacity: 0,
+                        textTransform: 'none',
 
-                    }}>let's start</Button>
+                    }}>New note</Button>
 
                 {/* outer rectangle */}
                 <Box sx={{
@@ -132,7 +145,7 @@ const Home = () => {
                     opacity: 0,
                 }}>
 
-                    {/* quarter circle */}
+                    {/* blur quarter circle */}
                     <Box
                         sx={{
                             width: '500px',
@@ -177,19 +190,40 @@ const Home = () => {
                         </Box>
                     </Box>
                 </Box>
-                {/* <Box
+
+                {/* red quarter circle */}
+                <Box
                     sx={{
-                        width: '500px',
-                        height: '470px',
+                        // width: '300px',
+                        // height: '300px',
                         position: 'absolute',
                         top: '175px',
-                        right: '0px',
-                        background: "#D8D7D6",
-                        opacity: '0.1',
+                        right: '200px',
+                        animation: `${quartercircleAnimation} 0.5s 3s ease-in-out forwards`,
+                        // background: 'linear-gradient(160deg, rgba(236,69,76,1) 14%, rgba(222,59,64,1) 48%, rgba(173,34,38,1) 90%);',
+                        // opacity: '0.1',
                         // backdropFilter: "blur(10px)",
-                        borderRadius: '0 0 80% 0',
-                        zIndex: '4'
+                        background: "linear-gradient(160deg, rgba(255,102,118,0.5) 0%, rgba(255,0,18,1) 0%, rgba(141,18,37,1) 100%)",
+                        borderRadius: '0 0 100% 0',
+                        zIndex: '5'
+                    }}></Box>
+                
+                {/* blue circle  */}
+                {/* <Box
+                    sx={{
+                        width: '200px',
+                        height: '200px',
+                        position: 'absolute',
+                        // border: '2px solid white',
+                        borderRadius: '150px',
+                        backgroundColor: 'rgba(99, 231, 244, 1)',
+                        top: '55px',
+                        left: '50px',
+                        right: '0px',
+                        zIndex: '6',
                     }}></Box> */}
+
+
             </Container>
         </>
     );
