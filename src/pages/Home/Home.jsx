@@ -1,5 +1,7 @@
-import { Button, Container, CssBaseline, Typography, keyframes, Box } from "@mui/material";
+import { Button, Container, CssBaseline, Typography, keyframes, Box, ThemeProvider } from "@mui/material";
 import zIndex from "@mui/material/styles/zIndex";
+import {Link } from 'react-router-dom';
+import Hometheme from "../../theme/Hometheme";
 const Home = () => {
     const leftAnimation = keyframes`
     from{
@@ -33,6 +35,7 @@ const Home = () => {
 
     return (
         <>
+            <ThemeProvider theme = {Hometheme}>
             <CssBaseline></CssBaseline>
             <Container
                 maxWidth='2xl'
@@ -69,7 +72,7 @@ const Home = () => {
                     </Typography>
                 </Box>
                 <Typography
-                    level="h1"
+                    variant="h1"
                     sx={{
                         fontSize: '4rem',
                         fontWeight: '600',
@@ -84,7 +87,7 @@ const Home = () => {
                     Start Typing
                 </Typography>
                 <Typography
-                    level="h1" sx={{
+                    variant ="h1" sx={{
                         fontSize: '4rem',
                         fontWeight: '600',
                         position: "relative",
@@ -115,6 +118,7 @@ const Home = () => {
                         handwritten notes or sketches.
                     </Typography>
                 </Box>
+                <Link to="/slug">
                 <Button
                     variant="contained"
                     size="large"
@@ -129,10 +133,12 @@ const Home = () => {
                         opacity: 0,
                         textTransform: 'none',
 
-                    }}>New note</Button>
+                            }}>New note</Button></Link>
 
+
+                {/* Right side elements  */}
                 {/* outer rectangle */}
-                <Box sx={{
+                {/* <Box sx={{
                     width: '500px',
                     height: '561px',
                     // border: '2px solid white',
@@ -143,10 +149,10 @@ const Home = () => {
                     zIndex: '1',
                     animation: `${rightboxAnimation} 1s 2.5s ease-in-out forwards`,
                     opacity: 0,
-                }}>
+                }}> */}
 
                     {/* blur quarter circle */}
-                    <Box
+                    {/* <Box
                         sx={{
                             width: '500px',
                             height: '470px',
@@ -158,10 +164,10 @@ const Home = () => {
                             // backdropFilter: "blur(10px)",
                             borderRadius: '0 0 80% 0',
                             zIndex: '4'
-                        }}></Box>
+                        }}></Box> */}
 
                     {/* inner rectangle */}
-                    <Box sx={{
+                    {/* <Box sx={{
                         width: '478px',
                         height: '490px',
                         // border: '2px solid white',
@@ -172,10 +178,10 @@ const Home = () => {
                         // filter: "blur(0.8px)",
                         zIndex: '2',
 
-                    }}>
+                    }}> */}
 
                         {/* circle */}
-                        <Box sx={{
+                        {/* <Box sx={{
                             width: '200px',
                             height: '200px',
                             position: 'relative',
@@ -189,10 +195,10 @@ const Home = () => {
                         }}>
                         </Box>
                     </Box>
-                </Box>
+                </Box> */}
 
                 {/* red quarter circle */}
-                <Box
+                {/* <Box
                     sx={{
                         // width: '300px',
                         // height: '300px',
@@ -206,7 +212,7 @@ const Home = () => {
                         background: "linear-gradient(160deg, rgba(255,102,118,0.5) 0%, rgba(255,0,18,1) 0%, rgba(141,18,37,1) 100%)",
                         borderRadius: '0 0 100% 0',
                         zIndex: '5'
-                    }}></Box>
+                    }}></Box> */}
                 
                 {/* blue circle  */}
                 {/* <Box
@@ -225,6 +231,7 @@ const Home = () => {
 
 
             </Container>
+        </ThemeProvider>
         </>
     );
 }
