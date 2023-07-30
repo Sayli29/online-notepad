@@ -1,5 +1,6 @@
 import { Button, Container, CssBaseline, Typography, keyframes, Box, ThemeProvider } from "@mui/material";
 import zIndex from "@mui/material/styles/zIndex";
+import Navbar from "../../components/layout/Navbar/Navbar";
 import {Link } from 'react-router-dom';
 import Hometheme from "../../theme/Hometheme";
 const Home = () => {
@@ -34,7 +35,8 @@ const Home = () => {
     }`;
 
     return (
-        <>
+        <>  
+            <Navbar ></Navbar>
             <ThemeProvider theme = {Hometheme}>
             <CssBaseline></CssBaseline>
             <Container
