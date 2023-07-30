@@ -5,9 +5,9 @@ import {Link } from 'react-router-dom';
 import Hometheme from "../../theme/Hometheme";
 import { codeGenerator } from "../../utlis/Slug";
 import {useEffect, useState} from "react";
-const Home = ({supabase,
-    //  unicode,
-    tableName}) => {
+
+const Home = ({supabase, tableName}) => {
+
     const [code, setCode] = useState('hello');
 
     const leftAnimation = keyframes`
@@ -43,19 +43,25 @@ const Home = ({supabase,
 
 
     //function
+
+    async function insertUniquecode(uncode){
+        const {error} = await supabase
+                        .from(tableName)
+                        .insert({slug: uncode})
+        console.log("inserted")
+    }
+
     const handleButtonClick = () =>{
         const unc = codeGenerator();
         console.log("generated code: ",unc);
         setCode(unc);
-        
+        insertUniquecode(unc);
         // TODO: 
         /*
         Write code here to:
         insert code inito db
         redirect user to route using useNavigate hook avaialble from react-router read docs
-
-
-        */
+         */
         console.log("state updated");
         
     }
