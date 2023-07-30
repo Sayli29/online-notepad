@@ -4,7 +4,10 @@ import Navbar from "../../components/layout/Navbar/Navbar";
 import {Link } from 'react-router-dom';
 import Hometheme from "../../theme/Hometheme";
 import { codeGenerator } from "../../utlis/Slug";
+import { useState } from "react";
 const Home = () => {
+    const [code, setCode] = useState('hello');
+
     const leftAnimation = keyframes`
     from{
         transform: translateX(-100%);
@@ -14,6 +17,7 @@ const Home = () => {
         opacity: 1;
         
     }`;
+
 
     const rightboxAnimation = keyframes`
     from{
@@ -36,7 +40,11 @@ const Home = () => {
     }`;
 
     function handleButtonClick(){
-        codeGenerator();
+        let unicode = codeGenerator();
+        console.log(typeof unicode);
+        setCode(unicode);
+        console.log(code);
+
     }
 
     return (
