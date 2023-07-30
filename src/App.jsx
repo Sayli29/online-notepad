@@ -12,6 +12,8 @@ const api = import.meta.env.VITE_REACT_API;
 const supabase = createClient(url, api);
 const tableName = 'note';
 
+// const [unicode, setUnicode] = useState('');
+
 function App() {
   // const [isMobile, setIsMobile] = useState(false);
 
@@ -26,7 +28,9 @@ function App() {
       {/* <Home /> */}
       <Router>
         <Routes>
-          <Route exact path='/' element={<Home supabase={supabase}/>}></Route>
+          <Route exact path='/' element={<Home supabase={supabase}
+          //  unicode={unicode}
+          tableName={tableName}/>}></Route>
           <Route exact path='/slug' element={<Editor/>}></Route>
         </Routes>
       </Router>

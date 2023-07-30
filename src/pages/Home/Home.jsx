@@ -4,8 +4,10 @@ import Navbar from "../../components/layout/Navbar/Navbar";
 import {Link } from 'react-router-dom';
 import Hometheme from "../../theme/Hometheme";
 import { codeGenerator } from "../../utlis/Slug";
-import { useState } from "react";
-const Home = () => {
+import {useEffect, useState} from "react";
+const Home = ({supabase,
+    //  unicode,
+    tableName}) => {
     const [code, setCode] = useState('hello');
 
     const leftAnimation = keyframes`
@@ -39,13 +41,30 @@ const Home = () => {
         opacity: 1px;
     }`;
 
-    function handleButtonClick(){
-        let unicode = codeGenerator();
-        console.log(typeof unicode);
-        setCode(unicode);
-        console.log(code);
 
+    //function
+    const handleButtonClick = () =>{
+        const unc = codeGenerator();
+        console.log("generated code: ",unc);
+        setCode(unc);
+        
+        // TODO: 
+        /*
+        Write code here to:
+        insert code inito db
+        redirect user to route using useNavigate hook avaialble from react-router read docs
+
+
+        */
+        console.log("state updated");
+        
     }
+
+    useEffect(() => {
+        // if(update == true && code != 'hello'){
+        console.log("Updated code:", code);
+    // }
+    }, [code]);
 
     return (
         <>  
@@ -133,7 +152,6 @@ const Home = () => {
                         handwritten notes or sketches.
                     </Typography>
                 </Box>
-                <Link to="/slug">
                 <Button
                     variant="contained"
                     size="large"
@@ -149,8 +167,8 @@ const Home = () => {
                         textTransform: 'none',
 
                             }}
-                        onClick={handleButtonClick}>New note</Button></Link>
-
+                        onClick={handleButtonClick}>New note</Button>
+               
 
                 {/* Right side elements  */}
                 {/* outer rectangle */}
