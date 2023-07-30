@@ -3,6 +3,7 @@ import zIndex from "@mui/material/styles/zIndex";
 import Navbar from "../../components/layout/Navbar/Navbar";
 import {Link } from 'react-router-dom';
 import Hometheme from "../../theme/Hometheme";
+import { codeGenerator } from "../../utlis/Slug";
 const Home = () => {
     const leftAnimation = keyframes`
     from{
@@ -33,6 +34,10 @@ const Home = () => {
         transform: translateY(0);
         opacity: 1px;
     }`;
+
+    function handleButtonClick(){
+        codeGenerator();
+    }
 
     return (
         <>  
@@ -135,7 +140,8 @@ const Home = () => {
                         opacity: 0,
                         textTransform: 'none',
 
-                            }}>New note</Button></Link>
+                            }}
+                        onClick={handleButtonClick}>New note</Button></Link>
 
 
                 {/* Right side elements  */}
